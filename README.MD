@@ -3,7 +3,6 @@
 ![Java](https://img.shields.io/badge/Java-17+-orange)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.1-green)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue)
-![License](https://img.shields.io/badge/License-MIT-yellow)
 
 Aplicación Spring Boot completa para interactuar con la API de Gutendex (Project Gutenberg) que permite buscar, almacenar y analizar datos de libros y autores.
 
