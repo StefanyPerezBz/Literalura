@@ -135,3 +135,11 @@ src/main/java/com/example/gutendex/
 MIT License - Ver LICENSE para detalles completos.
 
 Nota: Este proyecto fue diseñado para fines educativos y demostrativos. El código completo está disponible en el repositorio asociado.
+
+## ⭐ Insignia de logro
+
+Insignia de logro por completar el challenge **Practicando Spring Boot: Challenge Literalura**
+
+<p align="center">
+  <img src="image/badge-literalura.webp" alt="Vista de insignia" width="400"/>
+</p>
