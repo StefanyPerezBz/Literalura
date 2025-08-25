@@ -1,88 +1,77 @@
-# 📚 Catálogo de Libros - Gutendex API
+# 📚 Literalura - Biblioteca Digital
 
-![Java](https://img.shields.io/badge/Java-17+-orange)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.1-green)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue)
+[![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/)
+[![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)](https://spring.io/)
+[![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Maven](https://img.shields.io/badge/apache_maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)](https://maven.apache.org/)
 
-Aplicación Spring Boot completa para interactuar con la API de Gutendex (Project Gutenberg) que permite buscar, almacenar y analizar datos de libros y autores.
+**Literalura** es una aplicación de línea de comandos desarrollada en Spring Boot que permite interactuar con la API pública de [Gutendex](https://gutendex.com/). Los usuarios pueden buscar libros, registrar resultados en una base de datos PostgreSQL y analizar datos de autores y obras literarias.
 
 ## 🌟 Características
 
-- **Búsqueda avanzada** de libros por título
-- **Persistencia** en base de datos PostgreSQL
-- **Consultas especializadas**:
-    - Libros por idioma (inglés, español, francés)
-    - Autores vivos en año específico
-    - Top 10 libros más descargados
-- **Estadísticas** completas
-- **Interfaz de línea de comandos** (CLI) intuitiva
+- Búsqueda avanzada de libros por título
+- Registro de libros en PostgreSQL
+- Gestión de información de autores (nombre, fechas de nacimiento y defunción)
+- Filtrado de libros por idioma (Inglés, Español, Francés, Portugués, etc.)
+- Consulta de autores vivos en un año específico
+- Top 10 libros más descargados
+- Estadísticas por idioma y descargas
+- Interfaz de línea de comandos (CLI) intuitiva
 
-## 🛠 Stack Tecnológico
+## 💻 Requisitos del sistema
 
-- **Backend**:
-    - Java 17
-    - Spring Boot 3.1
-    - Spring Data JPA
-    - Jackson (v2.16)
-
-- **Base de Datos**:
-    - PostgreSQL 15+
-
-- **Dependencias Principales**:
-  ```xml
-  <dependencies>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jpa</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.postgresql</groupId>
-      <artifactId>postgresql</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.16.0</version>
-    </dependency>
-  </dependencies>
-
-## 🚀 Configuración Rápida
-Requisitos Mínimos
-- Java JDK 17+
-- PostgreSQL 15+ o Docker
+- Java 17 o superior
+- PostgreSQL 15 o superior (o vía Docker)
 - Maven 3.8+
+- Conexión a Internet (para consultar la API de Gutendex)
 
-Pasos de Instalación:
-1. Clonar repositorio:
-````
-git clone https://github.com/tu-usuario/gutendex-client.git
-cd gutendex-client
-````
-2. Configurar PostgreSQL con Docker (recomendado):
-````
-docker run --name gutendex-db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=password -e POSTGRES_DB=gutendex -p 5432:5432 -d postgres:15
-````
-3. Configurar aplicación (src/main/resources/application.properties):
-````
-spring.datasource.url=jdbc:postgresql://localhost:5432/gutendex
-spring.datasource.username=postgres
-spring.datasource.password=password
+## ⚙️ Configuración incial
+
+### 1. Clonar repositorio:
+
+```
+git clone https://github.com/tu-usuario/Literalura.git
+cd Literalura
+```
+
+### 2. Crear la base de datos MySQL
+
+```sql
+CREATE DATABASE literalura;
+```
+
+### 3. Configurar las credenciales de conexión
+
+Crear `src/main/resources/application.properties`:
+
+```properties
+# Configuracion de PostgreSQL
+spring.datasource.url=jdbc:postgresql://localhost:5432/literalura
+spring.datasource.username=tu_usuario
+spring.datasource.password=tu_contraseña
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# Configuracion de JPA/Hibernate
 spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.format_sql=true
+
+# Puerto
 server.port=8080
-````
-4. Ejecutar aplicación
-````
+```
+
+### 4. Ejecutar aplicación
+```
 mvn clean install
 mvn spring-boot:run
-````
+```
 
-##  🖥 Manual de Uso
-La aplicación muestra un menú interactivo con las siguientes opciones:
-````
+## 🚀  Uso de la aplicación
+
+Al iniciar, se muestra un menú interactivo con las siguientes opciones:
+
+```text
 === MENÚ PRINCIPAL ===
 1. Buscar libro por título
 2. Listar todos los libros
@@ -92,10 +81,11 @@ La aplicación muestra un menú interactivo con las siguientes opciones:
 6. Top 10 libros más descargados
 7. Buscar autor por nombre
 0. Salir
-````
+```
 
-**Ejemplo de Flujo**
-````
+## 📚  Ejemplo de flujo
+
+```
 Buscar libro:
 
 Ingrese título: "Don Quijote"
@@ -109,36 +99,49 @@ Muestra conteo por idiomas
 Consultar autores:
 
 Buscar autores vivos en 1850
-````
-## 🏗 Estructura del Código
-````
-src/main/java/com/example/gutendex/
+```
+
+## 🗂️ Estructura del proyecto
+
+```
+src/main/java/com/gutendex/gutendex_catalog/
 ├── config/              # Configuraciones
-├── controller/         # Lógica de CLI
-├── dto/                # Objetos para la API
+├── controller/          # Lógica de CLI
+├── dto/                 # Objetos para la API
 │   ├── AutorDTO.java
 │   ├── LibroDTO.java
 │   └── ResultDTO.java
-├── model/              # Entidades JPA
+├── model/              # Entidades JPA (Libro, Autor)
 │   ├── Autor.java
 │   └── Libro.java
 ├── repository/         # Repositorios
 │   ├── AutorRepository.java
 │   └── LibroRepository.java
-├── service/            # Servicios
+├── service/            # Servicios (API y DB)
 │   ├── ApiService.java
 │   └── DatabaseService.java
 └── GutendexApplication.java # Main
-````
-## 📄 Licencia
-MIT License - Ver LICENSE para detalles completos.
+```
 
-Nota: Este proyecto fue diseñado para fines educativos y demostrativos. El código completo está disponible en el repositorio asociado.
+## 🧩 Tecnologías utilizadas
+
+- **Java 17**: Lenguaje principal del proyecto
+- **Spring Boot 3.1**: Framework para desarrollo rápido
+- **Spring Data JPA**: Acceso a datos con repositorios
+- **PostgreSQL 15**: Base de datos relacional
+- **Jackson**: Serialización y deserialización de JSON
+- **Maven**: Gestión de dependencias y ciclo de vida del proyecto
+
+## 📄 Licencia
+
+MIT License – Ver LICENSE para detalles completos.
+
+Nota: Proyecto desarrollado con fines educativos y demostrativos.
 
 ## ⭐ Insignia de logro
 
 Insignia de logro por completar el challenge **Practicando Spring Boot: Challenge Literalura**
 
 <p align="center">
-  <img src="image/badge-literalura.webp" alt="Vista de insignia" width="400"/>
+  <img src="image/badge-literalura.webp" alt="Vista de insignia" width="200"/>
 </p>
