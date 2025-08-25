@@ -1,8 +1,8 @@
-# 📚 Literalura - Biblioteca Digital
+# 📚 Literalura - Catálogo de Libros
 
 [![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/)
 [![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)](https://spring.io/)
-[![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![PostgreSQL](https://img.shields.io/badge/postgresql-%2300f.svg?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Maven](https://img.shields.io/badge/apache_maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)](https://maven.apache.org/)
 
 **Literalura** es una aplicación de línea de comandos desarrollada en Spring Boot que permite interactuar con la API pública de [Gutendex](https://gutendex.com/). Los usuarios pueden buscar libros, registrar resultados en una base de datos PostgreSQL y analizar datos de autores y obras literarias.
@@ -143,5 +143,5 @@ Nota: Proyecto desarrollado con fines educativos y demostrativos.
 Insignia de logro por completar el challenge **Practicando Spring Boot: Challenge Literalura**
 
 <p align="center">
-  <img src="image/badge-literalura.webp" alt="Vista de insignia" width="200"/>
+  <img src="image/badge-literalura.webp" alt="Vista de insignia" width="100"/>
 </p>
